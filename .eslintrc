@@ -9,10 +9,11 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "airbnb-typescript/base"
+    "airbnb-typescript"
   ],
   "rules": {
-    "no-console": 0,
-    "no-await-in-loop": 0
+    "react/jsx-props-no-spreading": 1,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-one-expression-per-line": 0
   }
 }
