@@ -6,7 +6,12 @@ import ArticleContent from '../../components/article/ArticleContent';
 export default function Article(): ReactElement {
   const router = useRouter();
   const { article } = router.query;
-  const formatedArticle = (article as string).split('_').join('');
+
+  if (!article) {
+    return null;
+  }
+
+  const formatedArticle = (article as string).split('_').join(' ');
 
   return <ArticleContent articleTitle={formatedArticle} />;
 }
