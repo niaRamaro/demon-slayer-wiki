@@ -1,8 +1,7 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { ReactElement, useEffect, useState } from 'react';
 
 import formatFileName from '../../helpers/fileHelpers';
+import ArticleList from '../article/ArticleList';
 
 type Props = {
   category: string;
@@ -35,22 +34,7 @@ export default function CategoryArticles({ category }: Props): ReactElement {
   return (
     <>
       <h3>Articles</h3>
-      <ul>
-        {articles.map(({ title, thumbnail }) => (
-          <Link key={title} href={`/wiki/${encodeURIComponent(title)}`}>
-            <li>
-              <Image
-                src={thumbnail}
-                alt={title}
-                width={150}
-                height={150}
-                objectFit="contain"
-              />
-              <div>{title}</div>
-            </li>
-          </Link>
-        ))}
-      </ul>
+      <ArticleList articles={articles} />
     </>
   );
 }

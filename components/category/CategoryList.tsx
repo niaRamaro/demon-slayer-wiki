@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
 import CategoryListItem from './CategoryListItem';
+import ListContainer from '../common/ListContainer';
 import styles from './CategoryList.module.css';
 
 type Props = {
@@ -9,12 +10,12 @@ type Props = {
 
 export default function CategoryList({ categories }: Props): ReactElement {
   return (
-    <div className={styles.categoryListContainer}>
+    <ListContainer>
       {categories.map((category) => (
         <div key={category} className={styles.category}>
           <CategoryListItem category={category} />
         </div>
       ))}
-    </div>
+    </ListContainer>
   );
 }

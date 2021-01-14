@@ -1,0 +1,21 @@
+.article {
+  text-align: center;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.articleImage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  background-color: black;
+}
+
+.articleTitle {
+  height: 20%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,8 +1,3 @@
-.categoryListContainer {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .category {
   width: 48%;
   margin: 1%;
