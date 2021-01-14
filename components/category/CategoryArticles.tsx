@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { ReactElement, useEffect, useState } from 'react';
 
 import formatFileName from '../../helpers/fileHelpers';
@@ -36,16 +37,18 @@ export default function CategoryArticles({ category }: Props): ReactElement {
       <h3>Articles</h3>
       <ul>
         {articles.map(({ title, thumbnail }) => (
-          <li key={title}>
-            <Image
-              src={thumbnail}
-              alt={title}
-              width={150}
-              height={150}
-              objectFit="contain"
-            />
-            <div>{title}</div>
-          </li>
+          <Link key={title} href={`/wiki/${encodeURIComponent(title)}`}>
+            <li>
+              <Image
+                src={thumbnail}
+                alt={title}
+                width={150}
+                height={150}
+                objectFit="contain"
+              />
+              <div>{title}</div>
+            </li>
+          </Link>
         ))}
       </ul>
     </>
