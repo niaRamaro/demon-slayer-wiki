@@ -1,30 +1,29 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
+import { useRouter } from 'next/router';
 
 import ArticleContent from '../../../components/article/ArticleContent';
+import { formatFileName, reverseFileName } from '../../../helpers/fileHelpers';
 
 export default function Child(): ReactElement {
   const router = useRouter();
   const { article, subSection } = router.query;
-  const formatedSubsection = subSection as string;
 
   if (!article || !subSection) {
     return null;
   }
 
-  const formatedArticle = (article as string).split('_').join(' ');
+  const fullFormatedArticle = formatFileName(`${article}/${subSection}`);
 
   return (
     <>
       <Head>
         <title>
-          {formatedArticle} - {formatedSubsection}
+          {reverseFileName(article as string)} -{' '}
+          {reverseFileName(subSection as string)}
         </title>
       </Head>
-      <ArticleContent
-        articleTitle={formatedArticle.concat('++').concat(formatedSubsection)}
-      />
+      <ArticleContent articleTitle={fullFormatedArticle} />
     </>
   );
 }

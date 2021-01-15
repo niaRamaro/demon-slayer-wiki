@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ReactElement } from 'react';
 
 import Card from '../common/Card';
+import { formatFileName } from '../../helpers/fileHelpers';
 import styles from './ArticleListItem.module.css';
 
 export type ArticleItem = {
@@ -19,7 +20,7 @@ export default function ArticleListItem({
 }: Props): ReactElement {
   return (
     <Card>
-      <Link href={`/wiki/${encodeURIComponent(title)}`}>
+      <Link href={`/wiki/${encodeURIComponent(formatFileName(title))}`}>
         <a className={styles.article}>
           <div className={styles.articleImage}>
             {thumbnail && (

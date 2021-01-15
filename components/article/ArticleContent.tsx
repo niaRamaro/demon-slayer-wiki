@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from 'react';
 
-import formatFileName from '../../helpers/fileHelpers';
+import { formatFileName } from '../../helpers/fileHelpers';
 
 type Props = {
   articleTitle: string;
