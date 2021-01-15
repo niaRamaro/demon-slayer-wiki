@@ -20,7 +20,8 @@ export default function ArticleListItem({
 }: Props): ReactElement {
   return (
     <Card>
-      <Link href={`/wiki/${encodeURIComponent(formatFileName(title))}`}>
+      {/* getStaticPaths only handle url with / and not ++ (to match wiki content) */}
+      <Link href={`/wiki/${formatFileName(title).split('++').join('/')}`}>
         <a className={styles.article}>
           <div className={styles.articleImage}>
             {thumbnail && (
