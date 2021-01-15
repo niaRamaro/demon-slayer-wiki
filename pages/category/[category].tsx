@@ -31,11 +31,19 @@ export default function Category({
 
       <h1>Category : {formatedCategory}</h1>
 
-      <h3>Subcategories</h3>
-      <CategoryList categories={subCategories} />
+      {subCategories?.length && (
+        <>
+          <h3>Subcategories</h3>
+          <CategoryList categories={subCategories} />
+        </>
+      )}
 
-      <h3>Articles</h3>
-      <ArticleList articles={articles} />
+      {articles?.length && (
+        <>
+          <h3>Articles</h3>
+          <ArticleList articles={articles} />
+        </>
+      )}
     </>
   );
 }
@@ -70,8 +78,8 @@ export const getStaticProps: GetStaticProps<Props, PathParams> = async ({
 
   return {
     props: {
-      subCategories: allSubCategories[params.category as string],
-      articles: await loadArticles(params.category as string),
+      subCategories: allSubCategories[params.category] || null,
+      articles: await loadArticles(params.category),
     },
   };
 };
