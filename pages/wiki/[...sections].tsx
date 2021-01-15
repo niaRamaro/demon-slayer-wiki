@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { ReactElement } from 'react';
+import { ReactElement, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import articles from '../../data/articles.json';
+import { SetPageNameContext } from '../../components/common/Layout';
 import { formatFileName, reverseFileName } from '../../helpers/fileHelpers';
 
 type Props = {
@@ -17,8 +18,16 @@ type ArticleContent = {
 
 export default function Article({ article }: Props): ReactElement {
   const router = useRouter();
+  const setPageName = useContext(SetPageNameContext);
   const { sections } = router.query;
   const nonEmptySections = (sections as string[])?.filter((a) => a) ?? [];
+  // eslint-disable-next-line operator-linebreak
+  const title =
+    nonEmptySections?.map((a) => reverseFileName(a)).join(' - ') ?? '';
+
+  useEffect(() => {
+    setPageName(title);
+  }, [article]);
 
   if (!article?.html) {
     return null;
@@ -27,9 +36,7 @@ export default function Article({ article }: Props): ReactElement {
   return (
     <>
       <Head>
-        <title>
-          {nonEmptySections.map((a) => reverseFileName(a)).join(' - ')}
-        </title>
+        <title>{title}</title>
       </Head>
 
       {/* eslint-disable-next-line react/no-danger */}
