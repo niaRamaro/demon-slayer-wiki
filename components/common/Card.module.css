@@ -1,3 +1,15 @@
 .card {
-  border: 1px solid grey;
+  background-color: white;
+  box-shadow: 0px 15px 30px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 15px 35px 0px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover img {
+  transition: all 0.6s ease-out;
+  transform: scale(1.05);
 }
