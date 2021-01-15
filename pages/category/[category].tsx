@@ -40,14 +40,20 @@ export default function Category({
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => ({
+type PathParams = {
+  category: string;
+};
+
+export const getStaticPaths: GetStaticPaths<PathParams> = async () => ({
   paths: categories.map((category) => ({
     params: { category: formatFileName(category) },
   })),
   fallback: false,
 });
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<Props, PathParams> = async ({
+  params,
+}) => {
   async function loadArticles(category: string) {
     const categoryFileName = formatFileName(category);
 
