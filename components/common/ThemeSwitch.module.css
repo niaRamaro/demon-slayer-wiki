@@ -1,0 +1,60 @@
+.toggle {
+  width: 60px;
+  height: 30px;
+  border: 2.1px solid;
+  border-radius: 50px;
+  position: relative;
+  outline: none;
+  background: none;
+}
+
+.toggle:hover {
+  cursor: pointer;
+}
+
+.toggle.light {
+  border-color: #ffee32;
+}
+
+.toggle.dark {
+  border-color: var(--text-color);
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 21px;
+  height: 21px;
+  margin: auto;
+  border-radius: 35px;
+  transition: var(--theme-transition);
+}
+
+.icon.sun {
+  left: 0;
+}
+
+.icon.moon {
+  left: 100%;
+  transform: translateX(-100%);
+  margin-left: -2.4px;
+  background-color: var(--primary-color);
+  box-shadow: inset -10px 0 var(--text-color);
+}
+
+.icon svg {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+.icon.moon svg {
+  display: none;
+}
+
+.icon.sun svg path {
+  fill: #ffee32;
+}
