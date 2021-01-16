@@ -38,14 +38,14 @@ export default function Category({
 
       {!!subCategories?.length && (
         <>
-          <h3>Subcategories</h3>
+          <h2 className="text-center">Subcategories</h2>
           <CategoryList categories={subCategories} />
         </>
       )}
 
       {!!articles?.length && (
         <>
-          <h3>Articles</h3>
+          <h2 className="text-center">Articles</h2>
           <ArticleList articles={articles} />
         </>
       )}
