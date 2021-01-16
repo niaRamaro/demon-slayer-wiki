@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { createContext, ReactElement, useState } from 'react';
 
+import ThemeSwitch from './ThemeSwitch';
 import styles from './Layout.module.css';
 
 type Props = {
@@ -25,8 +26,12 @@ export default function Layout({ children }: Props): ReactElement {
             </a>
           </Link>
         </div>
+
         <h1 className={styles.headerTitle}>{pageName}</h1>
-        <div className={styles.headerSides}></div>
+
+        <div className={[styles.headerSides, styles.rightSide].join(' ')}>
+          <ThemeSwitch />
+        </div>
       </header>
 
       <main className={styles.main}>

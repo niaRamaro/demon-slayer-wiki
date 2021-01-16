@@ -1,3 +1,4 @@
 .categoryTitle {
   padding: 3rem;
+  border-bottom: solid var(--border-size) var(--accent-color);
 }
