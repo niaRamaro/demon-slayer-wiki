@@ -1,4 +1,5 @@
 .card {
+  height: 100%;
   background-color: var(--primary-color);
   box-shadow: var(--shadow) rgba(var(--shadow-color), 0.1);
   transition: all 0.2s ease-out;

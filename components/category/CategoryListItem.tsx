@@ -13,7 +13,7 @@ export default function CategoryListItem({ category }: Props): ReactElement {
   return (
     <Card>
       <Link href={`/category/${encodeURIComponent(formatFileName(category))}`}>
-        <a>
+        <a className={styles.titleContainer}>
           <h3 className={styles.categoryTitle}>{category}</h3>
         </a>
       </Link>

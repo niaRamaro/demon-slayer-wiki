@@ -1,4 +1,12 @@
 .categoryTitle {
-  padding: 3rem;
+  text-align: center;
+  margin: 0;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   border-bottom: solid var(--border-size) var(--accent-color);
 }
